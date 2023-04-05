@@ -3,6 +3,8 @@ from distutils.sysconfig import PREFIX
 import discord
 from dotenv import load_dotenv
 import os
+import openpyxl
+import random
 load_dotenv()
 
 PREFIX = os.environ['PREFIX']
@@ -13,6 +15,8 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}.')
+    await client.change_presence(activity=discord.Game("'레나야' 라고 부르시면 언제든 대답해 드려요!"))
+
 
 @client.event
 async def on_message(message):
